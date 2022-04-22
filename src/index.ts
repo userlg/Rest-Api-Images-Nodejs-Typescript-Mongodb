@@ -2,11 +2,6 @@ import app from './app';
 
 
 
-
-function main(){
-    app.listen( () =>{
-    console.log("\n\t Server running on port-->:" + app.get('port'));
+app.listen((app.get('port')), () => {
+    console.log('\n\tServer running on port ' + app.get('port'));
 });
-}
-
-main();
