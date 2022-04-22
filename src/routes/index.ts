@@ -3,9 +3,9 @@ import { Router } from 'express';
 var router = Router();
 
 
-router.get('/',(req, res) => {
+router.get('/images',(req, res) => {
     //res.render('home');
-    return res.send('Welcome');
+     res.send('Welcome');
 });
 
 export default router;
