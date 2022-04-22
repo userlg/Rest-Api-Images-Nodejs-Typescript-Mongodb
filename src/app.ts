@@ -17,18 +17,24 @@ app.set('port',process.env.PORT ||  port);
 
 
 //Settings to Handlebars
+//app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+
+
 app.set('views', path.join(__dirname, 'views'));
 
-app.engine('.hbs', engine({
+app.engine('hbs', engine({
     defaultLayout:"main",
     extname:".hbs",
-    layoutsDir: path.join(app.get('views'), 'views'),
+    layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
 }));
-app.set('view engine', '.hbs');
-app.set('views', './views');
 
-app.use(express.static(path.join(__dirname, 'views')));
+//-------------End Handlebars settings
+
+//Load the Css file
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 app.use(morgan('dev'));
@@ -36,10 +42,11 @@ app.use(express.json());
 
 app.use("/api",router);
 // Declare router to handler routes 
-app.get("/",(req, res) => {
-    var message = "<h2>Welcome to this View </h2>"
-    console.log(message);
-    return res.render('home');
-});
 
+app.get('/', (req, res) => {
+    return res.render('home',
+    {
+        title: 'Home Page',
+    });
+});
 export default app;
