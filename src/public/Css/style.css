@@ -4,6 +4,11 @@ html, body {
 }
 
 body {
-  background-color: #7dd1f8;
+  background-color: #f8aa7d;
+}
+
+h2 {
+  color: white;
+  font-family: sans-serif;
 }
 /*# sourceMappingURL=style.css.map */
