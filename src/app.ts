@@ -36,6 +36,10 @@ app.engine('hbs', engine({
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+//------ Path to folder upload to storage Images
+app.use('/uploads',express.static(path.resolve()));
+
+
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());

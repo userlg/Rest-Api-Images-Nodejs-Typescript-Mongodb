@@ -1,22 +1,18 @@
 import app from './app';
+import startConnection from './database';
+import generateDate from './libs/functions';
 
 
-/*
-async function main() {
-    app.listen((app.get('port')), () => {
-    console.log('\n\tServer running on port ' + app.get('port'));
-});
 
-}
-
-main(); */
 
 let port = app.get('port');
 
 
 const server = async () => {
-  await  app.listen(port, () => {
-        console.log(`Server listening on port--->${port}`);
+    app.listen(port,  async () => {
+        console.log(`\t\tServer listening on port--->${port}\n`);
+        await startConnection();
+        console.log(generateDate());
     });
 };
 
