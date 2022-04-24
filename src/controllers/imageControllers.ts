@@ -1,17 +1,17 @@
 import { Request, Response } from 'express';
 import Image from '../models/images';
 import generateDate from '../libs/functions';
+import path from 'path';
+import fs from 'fs-extra';
 
 
-export async function createImage(req: Request, res: Response) {
+export async function createImage(req: Request, res: Response): Promise<Response> {
 
     const { title, description } = req.body;
 
     var ipath = req.file?.path;
 
     var created_at = generateDate();
-
-    //var dir = req.file.path;
 
     const newImage = {
         title: title,
@@ -20,7 +20,6 @@ export async function createImage(req: Request, res: Response) {
         imagePath: ipath,
 
     }
-
     const image = new Image(newImage);
 
     await image.save();
@@ -51,3 +50,53 @@ export async function allImages(req: Request, res: Response): Promise<Response> 
     }
 
 };
+
+
+export async function getImage(req: Request, res: Response): Promise<Response> {
+    try {
+        var result = await Image.findById(req.params.id).orFail();
+
+        if (result != null) {
+            console.log('\t\t Element found \n');
+            console.log(result);
+            return res.json(result);
+        }
+        else {
+            return res.json({ "message": "Element not found", "Status": 404 });
+        }
+
+    }
+    catch (err) {
+        console.error(err);
+        return res.json({ "message": "An error occurred", "Status": 500 });
+    }
+}
+
+export async function deleteImage(req: Request, res: Response): Promise<Response> {
+
+
+    try {
+        var result = await Image.findByIdAndDelete(req.params.id);
+        if (result != null) {
+            var imageLocation = result['imagePath'];
+            await fs.unlink(path.resolve(imageLocation));
+            return res.json({ "message": "Element Deleted successfully", result });
+
+        }
+        else {
+            return res.json({ "message": "Element not found", "status": 404 })
+        }
+    }
+    catch (err) {
+        console.error(err);
+        return res.json({ "message": "Operation Failed", "Status": 404 });
+    }
+
+
+
+}
+
+export async function updateImage(req: Request, res: Response): Promise <Response> {
+   console.log('Image Updated');
+   return res.json({"message":"Image Updated Successfully"});
+}
