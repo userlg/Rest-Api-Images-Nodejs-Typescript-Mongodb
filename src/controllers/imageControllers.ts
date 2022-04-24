@@ -1,29 +1,53 @@
-import { Request, Response} from 'express';
+import { Request, Response } from 'express';
 import Image from '../models/images';
-import multer from '../libs/multer';
 import generateDate from '../libs/functions';
 
 
-export function createImage( req: Request, res: Response){
-   
-    console.log(req.body);
+export async function createImage(req: Request, res: Response) {
+
+    const { title, description } = req.body;
+
+    var ipath = req.file?.path;
 
     var created_at = generateDate();
 
-    multer.single('image');
+    //var dir = req.file.path;
+
+    const newImage = {
+        title: title,
+        description: description,
+        created_at: created_at,
+        imagePath: ipath,
+
+    }
+
+    const image = new Image(newImage);
+
+    await image.save();
+
+    console.log(image);
 
     return res.json({
-        "message":"Image created successfully",
-        "status": 200
+        "message": "Image created successfully",
+        "status": 200,
+        image
     });
 };
 
-export function getImages(req: Request, res: Response){
-     
+export async function allImages(req: Request, res: Response): Promise<Response> {
 
-    return res.json({
-        "message":"Getting results successfully",
-        "status": 200
-    });
+    const images = await Image.find();
+
+    if (images.length > 0) {
+        console.log(images);
+        return res.json({
+            "message": "Getting results successfully",
+            "status": 200,
+            images
+        });
+    }
+    else {
+        return res.json({ "message": "No images found", "status": 404 })
+    }
 
 };

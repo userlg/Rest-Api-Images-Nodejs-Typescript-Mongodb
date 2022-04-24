@@ -13,22 +13,24 @@ const schema = new Schema({
         required: true,
         trim: true
     },
-    ImagePath: {
+    imagePath: {
         type: String,
         required: true,
         trim: true
     },
     created_at: {
-       type: Date,
-       required: true,
+        type: String,
+        required: true,
     }
+}, {
+    versionKey: false,
 });
 
 interface IImage extends Document {
     title: string;
     description: string;
-    ImagePath: string;
-    created_at: Date;
+    imagePath: string;
+    created_at: string;
 }
 
 
