@@ -7,7 +7,7 @@ async function startConnection(){
    }
    catch (err) {
        console.error(err);
-       console.log('/t/tSomething happend with the Database');
+       console.log('\t\ttSomething happend with the Database');
    }
   
 };

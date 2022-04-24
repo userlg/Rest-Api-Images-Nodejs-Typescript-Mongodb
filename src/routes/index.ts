@@ -1,11 +1,14 @@
 import { Router } from 'express';
 
-import {createImage, getImages} from '../controllers/imageControllers'
+import {createImage, getImages} from '../controllers/imageControllers';
+
+import multer from '../libs/multer';
 
 var router = Router();
 
 
-router.post('/add_image',(req, res) => {
+router.post('/add_image',multer.single('image'),(req, res) => {
+
      createImage(req,res);
 });
 

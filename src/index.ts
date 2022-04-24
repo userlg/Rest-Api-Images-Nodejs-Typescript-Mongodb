@@ -1,6 +1,7 @@
 import app from './app';
 import startConnection from './database';
 import generateDate from './libs/functions';
+import { v4 as uuid4 } from 'uuid';
 
 
 
@@ -12,7 +13,8 @@ const server = async () => {
     app.listen(port,  async () => {
         console.log(`\t\tServer listening on port--->${port}\n`);
         await startConnection();
-        console.log(generateDate());
+        console.log('\t\tDate:' + generateDate());
+        console.log('\tID_SESSION:' + uuid4().toString())
     });
 };
 

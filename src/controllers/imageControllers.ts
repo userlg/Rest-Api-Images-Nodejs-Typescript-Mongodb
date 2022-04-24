@@ -1,9 +1,16 @@
 import { Request, Response} from 'express';
 import Image from '../models/images';
+import multer from '../libs/multer';
+import generateDate from '../libs/functions';
 
-export function createImage(req: Request, res: Response){
+
+export function createImage( req: Request, res: Response){
    
     console.log(req.body);
+
+    var created_at = generateDate();
+
+    multer.single('image');
 
     return res.json({
         "message":"Image created successfully",
