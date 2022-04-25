@@ -69,7 +69,7 @@ export async function getImage(req: Request, res: Response): Promise<Response> {
         console.error(err);
         return res.json({ "message": "An error occurred", "Status": 500 });
     }
-}
+};
 
 export async function deleteImage(req: Request, res: Response): Promise<Response> {
 
@@ -93,7 +93,7 @@ export async function deleteImage(req: Request, res: Response): Promise<Response
 
 
 
-}
+};
 
 export async function updateImage(req: Request, res: Response): Promise<Response> {
 
@@ -113,6 +113,6 @@ export async function updateImage(req: Request, res: Response): Promise<Response
     }
     catch (err) {
         console.log(err);
-        return res.json({ "message": "An error occurred", "status": "5000" });
+        return res.json({ "message": "An error occurred", "status": 500 });
     }
-}
+};
