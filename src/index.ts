@@ -12,7 +12,7 @@ let port = app.get('port');
 const server = async () => {
     app.listen(port,  async () => {
         console.log(`\t\tServer listening on port--->${port}\n`);
-        await startConnection();
+       // await startConnection();
         console.log('\t\tDate:' + generateDate());
         console.log('\tID_SESSION:' + uuid4().toString())
     });
