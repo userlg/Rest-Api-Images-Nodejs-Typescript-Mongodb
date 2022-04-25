@@ -9,7 +9,6 @@ async function startConnection(){
        console.error(err);
        console.log('\t\ttSomething happend with the Database');
    }
-  
 };
 
 export default startConnection;
