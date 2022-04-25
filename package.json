@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": "16.14"
+    "node": "16.14.2"
   },
   "name": "node-image-rest_api",
   "version": "1.0.0",
