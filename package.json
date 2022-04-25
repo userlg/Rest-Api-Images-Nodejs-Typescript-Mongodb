@@ -12,7 +12,7 @@
     "clean": "rimraf dist",
     "dev": "nodemon src/index.ts",
     "cp": "copyfiles -V --up 1 src/public/Css/*.css dist && copyfiles -V --all --up 1  src/views/**.hbs dist && copyfiles -V --all --up 1  src/views/layouts/**.hbs dist && copyfiles -V --all --up 1 src/views/partials/**.hbs dist",
-    "start": "npm run build && npm run cp && node dist/index.js",
+    "start": "npm i typescript && npm run build && npm run cp && node dist/index.js",
     "deploy": "git add . && git commit -m Heroku && git push heroku "
   },
   "keywords": [],
