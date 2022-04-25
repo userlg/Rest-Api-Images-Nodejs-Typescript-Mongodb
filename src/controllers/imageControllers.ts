@@ -51,7 +51,6 @@ export async function allImages(req: Request, res: Response): Promise<Response> 
 
 };
 
-
 export async function getImage(req: Request, res: Response): Promise<Response> {
     try {
         var result = await Image.findById(req.params.id).orFail();
@@ -96,7 +95,24 @@ export async function deleteImage(req: Request, res: Response): Promise<Response
 
 }
 
-export async function updateImage(req: Request, res: Response): Promise <Response> {
-   console.log('Image Updated');
-   return res.json({"message":"Image Updated Successfully"});
+export async function updateImage(req: Request, res: Response): Promise<Response> {
+
+    var id = req.params.id;
+    const { title, description } = req.body;
+    try {
+        var result = await Image.findByIdAndUpdate(id, { title, description });
+        if (result != null) {
+        console.log('Image Updated');
+        result = await Image.findById(id);
+        console.log(result);
+        return res.json({ "message": "Image Updated Successfully","status":200, result });
+    }
+    else {
+        return res.json({ "message": "Image not found", "status":404});
+    }
+    }
+    catch (err) {
+        console.log(err);
+        return res.json({ "message": "An error occurred", "status": "5000" });
+    }
 }
