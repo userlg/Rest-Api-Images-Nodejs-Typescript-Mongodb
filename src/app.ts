@@ -7,6 +7,9 @@ import path from 'path';
 import { engine } from 'express-handlebars';
 
 
+var favicon = require('serve-favicon');
+
+
 let app = express();
 
 let port = 8000;
@@ -38,6 +41,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //------ Path to folder upload to storage Images
 app.use('/uploads',express.static(path.resolve()));
+
+//------Favicon
+
+app.use(favicon(__dirname + '/public/assets/favicon.ico'));
 
 
 app.use(cors());
