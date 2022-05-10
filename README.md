@@ -1,6 +1,9 @@
 # Rest Image Api - Nodejs - TypeScript - Mongodb
 
 ### This is a simple rest api to upload images to the web server. This project was made with Nodejs, Typescript and mongodb. Wirh all the basics endpints using the request models put, post, get and delete
+![ Mongo ](img/mongo.png)
+![ TypeScript ](img/ts.png)
+![ Nodejs ](img/nodejs.png)
 ----------------------------------------------------------------
 # Installation
 
