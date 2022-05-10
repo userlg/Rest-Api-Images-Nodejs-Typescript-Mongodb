@@ -1,11 +1,112 @@
+<div class="container">
+    <h2 class="style animate__animated animate__backInLeft animate__slow">Image Rest Api</h2>
+    <div class="p-style">
+        <p>Welcome, this is a rest api image project. This project has all the basics endpoints to work with mongo.
+            You can upload your own images, consutl, deltete and update some particular image. This project was made
+            using
+            Nodejs
+            with Typescript. In the next section you will find the endpoints and code with short descriptions. I hope
+            you
+            enjoy this
+            this litle practice.
+        </p>
+    </div>
+
+    <div class="p-style">
+        <p>When you open the project the first you need to do is begin the packages installation with the next command</p>
+    </div>
+
+    <pre class="pre-style">
+<code>
+    npm install 
+</code>
+</pre>
+
+    <div class="p-style">
+        <p>This project run on the port 8000 by default</p>
+        <p>The next fragment of code allow run the project in development mode <>
+        </p>
+    </div>
+
+    <pre class="pre-style">
+<code>
+    npm run dev 
+</code>
+</pre>
+
+    <div class="p-style">
+        <p>To execute the production server insert the next command
+        </p>
+    </div>
+
+    <pre class="pre-style">
+<code>
+    npm run start
+</code>
+</pre>
+
+    <div class="p-style">
+        <p>First endpoint allow get all images saved in the server
+        </p>
+        <p>Request GET</p>
+        <h3 class="endpoint">http://localhost:8000/api/all_images</h3>
+    </div>
 
 
-<h2>Hello World from Handlebars</h2>
+    <div class="i-style">
+        <img class="image" src="assets/api1.png" alt="">
+    </div>
 
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident recusandae earum iusto nesciunt corrupti, unde,
-    deserunt iure molestiae error sapiente vitae labore, nihil fugiat cupiditate facilis consequatur totam rem
-    voluptatibus impedit expedita dolores repellat minima. Quibusdam, dolorem delectus iste nihil perspiciatis ullam
-    accusantium, dolore in veritatis sint corporis beatae ut culpa saepe? Dolorem pariatur sunt illum, quae debitis
-    mollitia tempore?</p>
 
-    {{! This is a comment ! }}
+    <div class="p-style">
+        <p>With the second endpoint you can add a new image in the server
+        </p>
+        <p>Request POST</p>
+        <h3 class="endpoint">http://localhost:8000/api/add_image</h3>
+    </div>
+
+
+    <div class="i-style">
+        <img class="image" src="assets/api2.png" alt="">
+    </div>
+
+
+
+   <div class="p-style">
+        <p>This endpoint allows get an particular image with the id object
+        </p>
+        <p>Request GET</p>
+        <h3 class="endpoint">http://localhost:8000/api/get_image/{image_id}</h3>
+    </div>
+
+
+    <div class="i-style">
+        <img class="image" src="assets/api3.png" alt="">
+    </div>
+
+    <div class="p-style">
+        <p>This endpoint allows delete an particular image with the id object
+        </p>
+        <p>Request DELETE</p>
+        <h3 class="endpoint">http://localhost:8000/api/delete_image/{image_id}</h3>
+    </div>
+
+
+    <div class="i-style">
+        <img class="image" src="assets/api4.png" alt="">
+    </div>
+     
+     <div class="p-style">
+        <p>This endpoint allows update an particular image with the id object
+        </p>
+        <p>Request PUT</p>
+        <h3 class="endpoint">http://localhost:8000/api/update_image/{image_id}</h3>
+    </div>
+
+
+    <div class="i-style">
+        <img class="image" src="assets/api5.png" alt="">
+    </div>
+</div>
+
+{{! This is a comment ! }}
